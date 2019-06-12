@@ -104,8 +104,6 @@ function show_survived_balance(ndx) {
                 }
                    else {return ("Dead");
                }
-             
-             
             });
         })
         .title(function(d) {
