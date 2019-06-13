@@ -61,20 +61,39 @@ function show_gender_balance(ndx) {
 
 function show_surv_balance(ndx) {
     var dim = ndx.dimension(dc.pluck('Survived'));
+        var dim = ndx.dimension(function(d) {
+        if (d.Survived === "1") {
+            return "Survived";
+        } else {
+            return "Died";
+        }
+    });
     var group = dim.group();
-    
+     
+     
     dc.barChart("#surv-balance")
         .width(400)
         .height(300)
         .margins({top: 10, right: 50, bottom: 30, left: 50})
-        .dimension(dim)
         .group(group)
+        .dimension(dim)
+        .title(function(d) {
+            if (d.key === "1")
+             return d.value + " Survived ";
+             else {
+            return d.value + " Passengers Died";
+        }
+        })
+        
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .elasticY(true)
         .xAxisLabel("Survivors")
+        .yAxisLabel("Person")
         .yAxis().ticks(10);
+        
+        
         
 }
 
