@@ -56,6 +56,7 @@ function show_gender_balance(ndx) {
         .elasticY(true)
         .xAxisLabel("Gender")
         .yAxis().ticks(10);
+        
 }
 
 function show_surv_balance(ndx) {
@@ -74,6 +75,7 @@ function show_surv_balance(ndx) {
         .elasticY(true)
         .xAxisLabel("Survivors")
         .yAxis().ticks(10);
+        
 }
 
 function show_survived_balance(ndx) {
