@@ -16,11 +16,13 @@ show_survived_selector(ndx);
 show_class_balance(ndx);
 show_survived_balance(ndx);
 show_surv_balance(ndx);
-
+show_age_balance(ndx);
 
 dc.renderAll();
 
+
 }
+
 
 function show_gender_selector(ndx) {
     var dim = ndx.dimension(dc.pluck('Sex'));
@@ -60,7 +62,7 @@ function show_gender_balance(ndx) {
 }
 
 function show_surv_balance(ndx) {
-    var dim = ndx.dimension(dc.pluck('Survived'));
+    var dimSurvived = ndx.dimension(dc.pluck('Survived'));
         var dim = ndx.dimension(function(d) {
         if (d.Survived === "1") {
             return "Survived";
@@ -77,12 +79,13 @@ function show_surv_balance(ndx) {
         .margins({top: 10, right: 50, bottom: 30, left: 50})
         .group(group)
         .dimension(dim)
-        .title(function(d) {
-            if (d.key === "1")
-             return d.value + " Survived ";
+        .title(function(dTag) {
+            if (dTag.key === "Survived")
+             return dTag.value + " Survived ";
+              
              else {
-            return d.value + " Passengers Died";
-        }
+                return dTag.value + " Passengers Died";
+               }
         })
         
         .transitionDuration(500)
@@ -123,7 +126,7 @@ function show_survived_balance(ndx) {
                   if (d.data.key === "1") {
                    return ("Survived");
                 }
-                   else {return ("Dead");
+                   else {return ("Died");
                }
             });
         })
@@ -149,4 +152,26 @@ function show_class_balance(ndx) {
         .elasticY(true)
         .xAxisLabel("Class of Passengers")
         .yAxis().ticks(10);
+}
+
+
+function show_age_balance(ndx) {
+    var dim = ndx.dimension(dc.pluck('Age'));
+    
+        
+           
+    var group = dim.group();
+    
+    dc.barChart("#age-balance-chart")
+        .width(900)
+        .height(300)
+        .margins({top: 10, right: 50, bottom: 30, left: 50})
+        .dimension(dim)
+        .group(group)
+        .transitionDuration(500)
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .elasticY(true)
+        .xAxisLabel("Age of Passengers")
+        .yAxis().ticks(2);
 }
