@@ -1,3 +1,4 @@
+
 queue()
     .defer(d3.csv, "main/data/Titanic.csv")
     .await(makeGraphs);
@@ -5,10 +6,7 @@ queue()
 function makeGraphs(error, titanicData) {
     var ndx = crossfilter(titanicData);
     
-    titanicData.forEach(function(d){
-        d.titanic = parseInt(d.titanic);
     
-});
 
 show_gender_selector(ndx);
 show_gender_balance(ndx);
@@ -20,9 +18,7 @@ show_age_balance(ndx);
 
 dc.renderAll();
 
-
 }
-
 
 function show_gender_selector(ndx) {
     var dim = ndx.dimension(dc.pluck('Sex'));
@@ -63,7 +59,9 @@ function show_gender_balance(ndx) {
 
 function show_surv_balance(ndx) {
     var dimSurvived = ndx.dimension(dc.pluck('Survived'));
-        var dim = ndx.dimension(function(d) {
+        var dim = ndx.dimension(function(d){
+           
+        
         if (d.Survived === "1") {
             return "Survived";
         } else {
@@ -157,10 +155,19 @@ function show_class_balance(ndx) {
 
 function show_age_balance(ndx) {
     var dim = ndx.dimension(dc.pluck('Age'));
-    
-        
-           
+   
     var group = dim.group();
+      function remove_empty_strings(show_age_balance) {
+        return {
+            all:function () {
+                return show_age_balance.all().filter(function(d) {
+                   
+                    return d.key !== ""; 
+                });
+            }
+        };
+    }
+    
     
     dc.barChart("#age-balance-chart")
         .width(900)
@@ -175,3 +182,6 @@ function show_age_balance(ndx) {
         .xAxisLabel("Age of Passengers")
         .yAxis().ticks(2);
 }
+
+
+
