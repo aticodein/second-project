@@ -154,27 +154,32 @@ function show_class_balance(ndx) {
 
 
 function show_age_balance(ndx) {
-    var dim = ndx.dimension(dc.pluck('Age'));
-   
-    var group = dim.group();
-      function remove_empty_strings(show_age_balance) {
-        return {
-            all:function () {
-                return show_age_balance.all().filter(function(d) {
-                   
-                    return d.key !== ""; 
-                });
-            }
-        };
-    }
+    var ageDim = ndx.dimension(dc.pluck('Age'));
     
+    var ageGroup = ageDim.group();
+         function remove_empty_strings(ageGroup, ageDim) {
+           return {
+              all:function () {
+                   return show_age_balance.all().filter(function(d) {
+                    
+                    
+                    return d.key !== " ";
+                    
+                   });
+                }
+            };
+         }
     
+    var filtered =remove_empty_strings(ageGroup, ageDim);
+   console.log();
+    
+     
     dc.barChart("#age-balance-chart")
         .width(900)
         .height(300)
         .margins({top: 10, right: 50, bottom: 30, left: 50})
-        .dimension(dim)
-        .group(group)
+        .dimension(ageDim)
+        .group(filtered)
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
@@ -182,6 +187,3 @@ function show_age_balance(ndx) {
         .xAxisLabel("Age of Passengers")
         .yAxis().ticks(2);
 }
-
-
-
