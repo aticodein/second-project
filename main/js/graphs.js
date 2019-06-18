@@ -155,24 +155,25 @@ function show_class_balance(ndx) {
 
 function show_age_balance(ndx) {
     var ageDim = ndx.dimension(dc.pluck('Age'));
-    
-    var ageGroup = ageDim.group();
-         function remove_empty_strings(ageGroup, ageDim) {
+  
+  
+  var ageGroup = ageDim.group();
+         function remove_empty_strings(ageGroup) {
            return {
               all:function () {
-                   return show_age_balance.all().filter(function(d) {
+                   return ageGroup.all().filter(function(d) {
                     
                     
-                    return d.key !== " ";
+                    return d.key !== "NA";
                     
                    });
                 }
             };
          }
     
-    var filtered =remove_empty_strings(ageGroup, ageDim);
+    var filtered =remove_empty_strings(ageGroup);
    console.log();
-    
+   
      
     dc.barChart("#age-balance-chart")
         .width(900)
