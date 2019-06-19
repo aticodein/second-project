@@ -1,4 +1,10 @@
 {
+    "ace": {
+        "@guessTabSize": true
+    },
+    "instance": {
+        "@automaticShutdown": "60"
+    },
     "language": {
         "tern_defs": {
             "json()": {

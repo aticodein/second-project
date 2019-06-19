@@ -1,4 +1,3 @@
-
 queue()
     .defer(d3.csv, "main/data/Titanic.csv")
     .await(makeGraphs);
@@ -7,6 +6,18 @@ function makeGraphs(error, titanicData) {
     var ndx = crossfilter(titanicData);
     
     
+function age_to_integer(Age) {
+// Convert all ages to float. Store as age_float.
+    titanicData.forEach(function(d) {
+        var _Age;
+        d[_Age] = Math.round(d["Age"]);
+         console.log();
+    });
+}
+
+ console.log(titanicData);
+   age_to_integer("Age");
+  
 
 show_gender_selector(ndx);
 show_gender_balance(ndx);
@@ -157,7 +168,8 @@ function show_age_balance(ndx) {
     var ageDim = ndx.dimension(dc.pluck('Age'));
   
   
-  var ageGroup = ageDim.group();
+  
+   var ageGroup = ageDim.group();
          function remove_empty_strings(ageGroup) {
            return {
               all:function () {
@@ -172,8 +184,8 @@ function show_age_balance(ndx) {
          }
     
     var filtered =remove_empty_strings(ageGroup);
-   console.log();
-   
+  
+    
      
     dc.barChart("#age-balance-chart")
         .width(900)
