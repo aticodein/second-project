@@ -57,7 +57,7 @@ function show_gender_balance(ndx) {
     var dim = ndx.dimension(dc.pluck('Sex'));
     var group = dim.group();
     var BarChartColors = d3.scale.ordinal()
-        .range(['#F1948A','#52BE80']);
+        .range(['#F1948A','#4285F4']);
         
     dc.barChart("#gender-balance")
         .width(400)
@@ -164,13 +164,19 @@ function show_survived_balance(ndx) {
 function show_class_balance(ndx) {
     var dim = ndx.dimension(dc.pluck('PClass'));
     var group = dim.group();
-    
+    var BarChartColors = d3.scale.ordinal()
+        .range(['#F7DC6F','gold','silver']);
+        
     dc.barChart("#class-chart")
         .width(400)
         .height(300)
         .margins({top: 10, right: 50, bottom: 30, left: 50})
         .dimension(dim)
         .group(group)
+        .colorAccessor(function(d) {
+            return d.key;
+        })
+        .colors(BarChartColors)
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
