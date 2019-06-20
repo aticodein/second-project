@@ -5,19 +5,23 @@ queue()
 function makeGraphs(error, titanicData) {
     var ndx = crossfilter(titanicData);
     
-    
-function age_to_integer(Age) {
-// Convert all ages to float. Store as age_float.
-    titanicData.forEach(function(d) {
-        var _Age;
-        d[_Age] = Math.round(d["Age"]);
-         console.log();
-    });
-}
-
- console.log(titanicData);
-   age_to_integer("Age");
   
+    function age_to_integer(arg1) {
+        titanicData.forEach(function(d) {
+            var age_lower = arg1.toLowerCase();
+            if (d[arg1] == "NA") {
+                d[age_lower] = "";
+            }
+            else {
+                d[age_lower] = Math.round(d[arg1]);
+            }
+        });
+    }
+
+    age_to_integer("Age");
+    
+    
+
 
 show_gender_selector(ndx);
 show_gender_balance(ndx);
@@ -52,13 +56,19 @@ function show_survived_selector(ndx) {
 function show_gender_balance(ndx) {
     var dim = ndx.dimension(dc.pluck('Sex'));
     var group = dim.group();
-    
+    var BarChartColors = d3.scale.ordinal()
+        .range(['#F1948A','#52BE80']);
+        
     dc.barChart("#gender-balance")
         .width(400)
         .height(300)
         .margins({top: 10, right: 50, bottom: 30, left: 50})
         .dimension(dim)
         .group(group)
+        .colorAccessor(function(d) {
+            return d.key;
+        })
+        .colors(BarChartColors)
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
@@ -80,7 +90,8 @@ function show_surv_balance(ndx) {
         }
     });
     var group = dim.group();
-     
+    var survivorsBarChartColors = d3.scale.ordinal()
+        .range(['#7B241C', '#F5B041']);
      
     dc.barChart("#surv-balance")
         .width(400)
@@ -88,6 +99,10 @@ function show_surv_balance(ndx) {
         .margins({top: 10, right: 50, bottom: 30, left: 50})
         .group(group)
         .dimension(dim)
+        .colorAccessor(function(d) {
+            return d.key;
+        })
+        .colors(survivorsBarChartColors)
         .title(function(dTag) {
             if (dTag.key === "Survived")
              return dTag.value + " Survived ";
@@ -113,7 +128,8 @@ function show_survived_balance(ndx) {
 
     var survived_dim = ndx.dimension(dc.pluck('Survived'));
     var show_survived_balance = survived_dim.group();
-
+    var survivorsPieChartColors = d3.scale.ordinal()
+        .range(['#E67E22', '#F39C12']);
     function survivors(k, v) {
         if (k === "1") {
             return "There were " + v + " survivors";
@@ -129,6 +145,7 @@ function show_survived_balance(ndx) {
         .transitionDuration(1500)
         .dimension(survived_dim)
         .group(show_survived_balance)
+        .colors(survivorsPieChartColors)
         .on('pretransition', function(chart) {
             chart.selectAll('text.pie-slice').text(function(d) {
                 
@@ -141,7 +158,6 @@ function show_survived_balance(ndx) {
         })
         .title(function(d) {
             return survivors(d.key, d.value);
-            
         });
 }
 
@@ -165,34 +181,36 @@ function show_class_balance(ndx) {
 
 
 function show_age_balance(ndx) {
-    var ageDim = ndx.dimension(dc.pluck('Age'));
-  
-  
-  
-   var ageGroup = ageDim.group();
+    var ageDim = ndx.dimension(dc.pluck('age'));
+    var ageGroup = ageDim.group();
          function remove_empty_strings(ageGroup) {
-           return {
+          return {
               all:function () {
                    return ageGroup.all().filter(function(d) {
                     
                     
-                    return d.key !== "NA";
+                  return d.key !== "";
                     
-                   });
-                }
-            };
-         }
+                  });
+               }
+           };
+      }
     
     var filtered =remove_empty_strings(ageGroup);
   
-    
+     var BarChartColors = d3.scale.ordinal()
+        .range(['#7B241C','#F5B041','#F7DC6F']);
      
     dc.barChart("#age-balance-chart")
         .width(900)
         .height(300)
-        .margins({top: 10, right: 50, bottom: 30, left: 50})
+        .margins({ top: 10, right: 50, bottom: 30, left: 50 })
         .dimension(ageDim)
         .group(filtered)
+        .colorAccessor(function(d) {
+            return d.key;
+        })
+        .colors(BarChartColors)
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
