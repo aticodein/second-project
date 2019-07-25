@@ -1,5 +1,5 @@
 queue()
-    .defer(d3.csv, "main/data/Titanic.csv")
+    .defer(d3.csv, "assets/data/Titanic.csv")
     .await(makeGraphs);
     
 function makeGraphs(error, titanicData) {
