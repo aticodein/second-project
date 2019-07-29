@@ -37,6 +37,14 @@ dc.renderAll();
 
 function show_gender_selector(ndx) {
     var dim = ndx.dimension(dc.pluck('Sex'));
+    var dim = ndx.dimension(function(d){
+           
+          if (d.Sex === "male") {
+            return "Male";
+          } else {
+            return "Female";
+        }
+    });
     var group = dim.group();
     
     dc.selectMenu("#gender")
@@ -46,6 +54,14 @@ function show_gender_selector(ndx) {
 
 function show_survived_selector(ndx) {
     var dim = ndx.dimension(dc.pluck('Survived'));
+        var dim = ndx.dimension(function(d){
+           
+          if (d.Survived === "1") {
+            return "Survived";
+          } else {
+            return "Died";
+        }
+    });
     var group = dim.group();
     
     dc.selectMenu("#survived")
@@ -165,7 +181,7 @@ function show_class_balance(ndx) {
     var dim = ndx.dimension(dc.pluck('PClass'));
     var group = dim.group();
     var BarChartColors = d3.scale.ordinal()
-        .range(['#F7DC6F','gold','silver']);
+        .range(['#E67E22','gold','#F39C12']);
         
     dc.barChart("#class-chart")
         .width(400)
