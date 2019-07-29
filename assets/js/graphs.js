@@ -205,10 +205,10 @@ function show_age_balance(ndx) {
     var filtered =remove_empty_strings(ageGroup);
   
      var BarChartColors = d3.scale.ordinal()
-        .range(['#7B241C','#F5B041','#F7DC6F']);
+        .range(['#7B241C','#F39C12','#F7DC6F']);
      
     dc.barChart("#age-balance-chart")
-        .width(900)
+        .width(1000)
         .height(300)
         .margins({ top: 10, right: 50, bottom: 30, left: 50 })
         .dimension(ageDim)

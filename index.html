@@ -23,25 +23,38 @@
 </head>
 <body>
     
-<div class="container">
+<div class="heading">
 <div class="jumbotron jumbotron-fluid">
 <div class="container">  
- <button id="reset-filters" class="btn btn-danger">Reset all Charts</button>
- <button id="about" class="btn btn-success">Learn more</button>
     <h1>Titanic Passengers Data Visualisation</h1>
     </div>
 </div>
 
+<div class="navbar">
 
-    
-<div class="row">
+<button id="learn-more" class="btn btn-success col-md-offset-3" onclick="learnMore()">Learn more</button>
+
+
+
+
+
+
+
+<button id="reset-filters" class="btn btn-danger col-md-offset-4">Reset all Charts</button>
 </div>
+
+</div>
+<div id="buttonSuccess" class="button-success col-md-offset-1">
+This is my DIV element.
+</div>
+<main>
+<section>    
 
 <div class="row">
     <div class="col-md-offset-3">
     <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
                 <div class="content-wrapper">
-                    <div><i class="fas fa-eye-slash hide-content-btn"></i></div>
+                    <div><i class="fas fa-book-open hide-content-btn"></i></div>
                     <h3>Gender Selector</h3>
                     <div class="hide-content-toggle">
                         <div>
@@ -52,7 +65,7 @@
                 </div>
     <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
                 <div class="content-wrapper">
-                    <div><i class="fas fa-eye-slash hide-content-btn"></i></div>
+                    <div><i class="fas fa-book-open hide-content-btn"></i></div>
                     <h3>Survivors</h3>
                     <div class="hide-content-toggle">
                         <div>
@@ -63,12 +76,14 @@
                 </div>
     </div>
 </div>
+</section>
 
+<section>
 <div class="row">
     <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
                 <div class="content-wrapper">
                 <h3>Survivors of Titanic</h3>
-                <div><i class="fas fa-eye-slash hide-content-btn"></i></div>
+                <div><i class="fas fa-book-open hide-content-btn"></i></div>
                 <div class="hide-content-toggle">
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
                         sed diam nonummy nibh euismod tincidunt ut laoreet dolore
@@ -80,21 +95,17 @@
                         </div>
                        </div>    
                 <div class="content-wrapper">        
-                    <div><i class="fas fa-eye-slash hide-content-btn"></i></div>
-                    <div class="hide-content-toggle">
                         <div>
                             <div id="surv-balance"></div>
                         </div>
-                      </div>
                      </div>
                     </div>
                     
-                    
     <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
                 <div class="content-wrapper">
-                <h3>Survivors</h3>
+                <h3>Survivors Pie Chart</h3>
                 
-                <div><i class="fas fa-eye-slash hide-content-btn"></i></div>
+                <div><i class="fas fa-book-open hide-content-btn"></i></div>
                 
                 <div class="hide-content-toggle">
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
@@ -106,30 +117,20 @@
                         in futurum.</p>
                         </div>
                        </div>    
-                <div class="content-wrapper">   
-                
-                    <div><i class="fas fa-eye-slash hide-content-btn"></i></div>
+                <div class="content-wrapper">  
                     
-                    <div class="hide-content-toggle">
+                    
                         <div>
                             <div id="survived-pie-chart"></div>
                         </div>
-                      </div>
+                      
                      </div>
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
     
     <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
                 <div class="content-wrapper">
                     <h3>Gender Balance</h3>
-                    <div><i class="fas fa-eye-slash hide-content-btn"></i></div>
+                    <div><i class="fas fa-book-open hide-content-btn"></i></div>
                     
                     <div class="hide-content-toggle">
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
@@ -142,14 +143,9 @@
                         </div>
                        </div>    
                 <div class="content-wrapper">   
-                
-                    <div><i class="fas fa-eye-slash hide-content-btn"></i></div>
-                    
-                    <div class="hide-content-toggle">
-                        <div>
-                            <div id="gender-balance"></div>
-                        </div>
-                        </div>
+                    <div>
+                     <div id="gender-balance"></div>
+                    </div>
                     </div>
                 </div>
     </div>
@@ -157,32 +153,55 @@
 <div class="row">
 <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
                 <div class="content-wrapper">
-                    <div><i class="fas fa-eye-slash hide-content-btn"></i></div>
                     <h3>Passengers Classes</h3>
+                    <div><i class="fas fa-book-open hide-content-btn"></i></div>
                     <div class="hide-content-toggle">
-                        <div>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+                        um lectorum. Mirum est notare quam littera gothica,
+                        quam nunc putamus parum claram, anteposuerit litterarum formas
+                        humanitatis per seacula quarta decima et quinta decima. Eodem
+                        modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
+                        in futurum.</p>
+                           </div>
+                           </div>
                             <div id="class-chart"></div>
                         </div>
-                        </div>
-                    </div>
-                </div>
+                        
+                    
 
                 
-<div style="overflow-x:auto;" class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
+<div  class="toggle col-xs-12 col-sm-6 col-lg-6 eq-column-height">
                 <div class="content-wrapper">
-                    <div><i class="fas fa-eye-slash hide-content-btn"></i></div>
                     <h3>Passengers Age Chart</h3>
+                    <div><i class="fas fa-book-open hide-content-btn"></i></div>
+                    
                     <div class="hide-content-toggle">
-                        <div>
-                            <div id="age-balance-chart" class="age"></div>
+                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+                        um lectorum. Mirum est notare quam littera gothica,
+                        quam nunc putamus parum claram, anteposuerit litterarum formas
+                        humanitatis per seacula quarta decima et quinta decima. Eodem
+                        modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
+                        in futurum.</p>
                         </div>
-                        </div>
+                      </div>
+                        <div style="overflow-x:auto;" class="hide-content-toggle">
+                        <div class="content-wrapper">   
+                              <div>
+                     <div id="age-balance-chart" class="age"></div>
                     </div>
-                </div> 
-</div>            
+                            </div>
+                        </div>    
+                    </div>
+                    
+                    
+ </div> 
+   
 
-</div>
+</section>
 
+</main>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="assets/js/reset-toggle.js"></script>
