@@ -5,7 +5,6 @@ queue()
 function makeGraphs(error, titanicData) {
     var ndx = crossfilter(titanicData);
     
-  
     function age_to_integer(arg1) {
         titanicData.forEach(function(d) {
             var age_lower = arg1.toLowerCase();
@@ -20,9 +19,6 @@ function makeGraphs(error, titanicData) {
 
     age_to_integer("Age");
     
-    
-
-
 show_gender_selector(ndx);
 show_gender_balance(ndx);
 show_survived_selector(ndx);
@@ -30,6 +26,7 @@ show_class_balance(ndx);
 show_survived_balance(ndx);
 show_surv_balance(ndx);
 show_age_balance(ndx);
+
 
 dc.renderAll();
 
