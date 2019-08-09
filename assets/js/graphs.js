@@ -23,10 +23,9 @@ show_gender_selector(ndx);
 show_gender_balance(ndx);
 show_survived_selector(ndx);
 show_class_balance(ndx);
-show_survived_balance(ndx);
+show_age_sort(ndx);
 show_surv_balance(ndx);
 show_age_balance(ndx);
-
 
 dc.renderAll();
 
@@ -132,47 +131,36 @@ function show_surv_balance(ndx) {
         .xAxisLabel("Survivors")
         .yAxisLabel("Person")
         .yAxis().ticks(10);
-        
-        
-        
 }
 
-function show_survived_balance(ndx) {
-
-    var survived_dim = ndx.dimension(dc.pluck('Survived'));
-    var show_survived_balance = survived_dim.group();
-    var survivorsPieChartColors = d3.scale.ordinal()
-        .range(['#E67E22', '#F39C12']);
-    function survivors(k, v) {
-        if (k === "1") {
-            return "There were " + v + " survivors";
-        }
-        else {
-            return v + " passengers died";
-        }
-    }
-
-    dc.pieChart('#survived-pie-chart')
-        .height(330)
-        .radius(90)
-        .transitionDuration(1500)
-        .dimension(survived_dim)
-        .group(show_survived_balance)
-        .colors(survivorsPieChartColors)
-        .on('pretransition', function(chart) {
-            chart.selectAll('text.pie-slice').text(function(d) {
-                
-                  if (d.data.key === "1") {
-                   return ("Survived");
-                }
-                   else {return ("Died");
-               }
-            });
-        })
-        .title(function(d) {
-            return survivors(d.key, d.value);
-        });
-}
+function show_age_sort(ndx) {
+   var dim = ndx.dimension(dc.pluck('Age'));
+   var group = dim.group();
+   var agePieChartColors = d3.scale.ordinal()
+        .range(['#E67E22', '#F39C12', 'brown']);
+   var agesDim = ndx.dimension(function(d) {
+      switch  (true) {
+         
+          case (d.Age < 22):
+              return "0 to 21";
+          case (40 > d.Age):
+              return "22 to 40";
+          case (d.Age >= 40):
+              return "40+";
+      }
+  
+  });
+  
+  
+  var age_sort_group = agesDim.group();
+  dc.pieChart('#age-pie-chart')
+      .height(330)
+      .radius(90)
+      .transitionDuration(1500)
+      .dimension(agesDim)
+      .group(age_sort_group)
+      .colors(agePieChartColors);
+  }
 
 function show_class_balance(ndx) {
     var dim = ndx.dimension(dc.pluck('PClass'));
@@ -237,3 +225,10 @@ function show_age_balance(ndx) {
         .xAxisLabel("Age of Passengers")
         .yAxis().ticks(2);
 }
+
+/*--------------------------------------------Beta----------------------------------------*/
+
+
+
+
+
