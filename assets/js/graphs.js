@@ -137,16 +137,18 @@ function show_age_sort(ndx) {
    var dim = ndx.dimension(dc.pluck('Age'));
    var group = dim.group();
    var agePieChartColors = d3.scale.ordinal()
-        .range(['#E67E22', '#F39C12', 'brown']);
+        .range(['#E67E22', '#F39C12', 'brown', '#7d381f']);
    var agesDim = ndx.dimension(function(d) {
       switch  (true) {
          
-          case (d.Age < 22):
-              return "0 to 21";
-          case (40 > d.Age):
-              return "22 to 40";
-          case (d.Age >= 40):
-              return "40+";
+          case (d.Age < 21):
+              return "Under 21y";
+          case (50 > d.Age):
+              return "21y to 50y";
+          case (d.Age >= 50):
+              return "Over 50y";
+          case (d.Age === 'NA'):
+              return "Age N/A";      
       }
   
   });
