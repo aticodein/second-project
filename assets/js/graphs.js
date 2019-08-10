@@ -222,6 +222,9 @@ function show_age_balance(ndx) {
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
+        .title(function(dTag) {
+             return dTag.value + " Passengers were " + dTag.key + " years old ";
+               })
         .elasticY(true)
         .xAxisLabel("Age of Passengers")
         .yAxis().ticks(2);
