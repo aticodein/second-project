@@ -111,7 +111,7 @@ To deploy this project, I took the following initial steps:
 - I then clicked on the 'settings' option, located on the top horizontal menu bar
 - Next, I scrolled down the page to the GitHub Pages section and located the dropdown box under 'Source'
 - From there I selected the 'master branch'
-- These steps resulted in the finished site being deployed at [https://steview-d.github.io/superhero-dashboard/](https://steview-d.github.io/superhero-dashboard/)
+- These steps resulted in the finished site being deployed at [https://aticodein.github.io/second-project/], (https://aticodein.github.io/second-project/)
 
 ## Credits
 

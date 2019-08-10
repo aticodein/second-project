@@ -4,7 +4,7 @@ queue()
     
 function makeGraphs(error, titanicData) {
     var ndx = crossfilter(titanicData);
-    
+ /*---------------------------------------Numbers to order----------------*/   
     function age_to_integer(arg1) {
         titanicData.forEach(function(d) {
             var age_lower = arg1.toLowerCase();
@@ -18,7 +18,7 @@ function makeGraphs(error, titanicData) {
     }
 
     age_to_integer("Age");
-    
+/*---------------------------------------All charts----------------*/     
 show_gender_selector(ndx);
 show_gender_balance(ndx);
 show_survived_selector(ndx);
@@ -30,7 +30,7 @@ show_age_balance(ndx);
 dc.renderAll();
 
 }
-
+/*---------------------------------------Gender selector----------------*/ 
 function show_gender_selector(ndx) {
     var dim = ndx.dimension(dc.pluck('Sex'));
     var dim = ndx.dimension(function(d){
@@ -47,7 +47,7 @@ function show_gender_selector(ndx) {
         .dimension(dim)
         .group(group);
 }
-
+/*---------------------------------------Survivor selector----------------*/ 
 function show_survived_selector(ndx) {
     var dim = ndx.dimension(dc.pluck('Survived'));
         var dim = ndx.dimension(function(d){
@@ -64,7 +64,7 @@ function show_survived_selector(ndx) {
         .dimension(dim)
         .group(group);
 }
-
+/*---------------------------------------First row bar-chart----------------*/ 
 function show_gender_balance(ndx) {
     var dim = ndx.dimension(dc.pluck('Sex'));
     var group = dim.group();
@@ -89,7 +89,7 @@ function show_gender_balance(ndx) {
         .yAxis().ticks(10);
         
 }
-
+/*---------------------------------------First second bar-chart----------------*/ 
 function show_surv_balance(ndx) {
     var dimSurvived = ndx.dimension(dc.pluck('Survived'));
         var dim = ndx.dimension(function(d){
@@ -132,7 +132,7 @@ function show_surv_balance(ndx) {
         .yAxisLabel("Person")
         .yAxis().ticks(10);
 }
-
+/*---------------------------------------First row pie-chart----------------*/ 
 function show_age_sort(ndx) {
    var dim = ndx.dimension(dc.pluck('Age'));
    var group = dim.group();
@@ -161,7 +161,7 @@ function show_age_sort(ndx) {
       .group(age_sort_group)
       .colors(agePieChartColors);
   }
-
+/*---------------------------------------Second row class bar-chart----------------*/ 
 function show_class_balance(ndx) {
     var dim = ndx.dimension(dc.pluck('PClass'));
     var group = dim.group();
@@ -185,8 +185,7 @@ function show_class_balance(ndx) {
         .xAxisLabel("Class of Passengers")
         .yAxis().ticks(10);
 }
-
-
+/*---------------------------------------Second row age gouped bar-chart----------------*/ 
 function show_age_balance(ndx) {
     var ageDim = ndx.dimension(dc.pluck('age'));
     var ageGroup = ageDim.group();
@@ -225,10 +224,3 @@ function show_age_balance(ndx) {
         .xAxisLabel("Age of Passengers")
         .yAxis().ticks(2);
 }
-
-/*--------------------------------------------Beta----------------------------------------*/
-
-
-
-
-
