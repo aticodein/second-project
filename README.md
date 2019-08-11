@@ -27,8 +27,7 @@ Github repository : [https://github.com/aticodein/second-project](https://github
  * As a user, I want to be able to easily reset the data and start over, and not have to worry about manually setting all the values back to their original values.
  
 ### Wireframes
-
-- (https://balsamiq.com/wireframes/)
+/assets/images/2019-08-11.png
  
 ## Features
 
