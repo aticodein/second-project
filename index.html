@@ -25,172 +25,153 @@
 <body>
     
 <div class="heading">
-<!--------------------------------------------Jumbotron Image------------------------------------------->    
-<div class="jumbotron jumbotron-fluid">
-<div class="container">  
-    <h1>Passengers of the Titanic</h1>
- </div>
-</div>
-<!------------------------------------------Topfix line for buttons--------------------------------------->
-<div class="navbar">
-<button id="learn-more" class="btn btn-success col-md-offset-3" onclick="learnMore()">Learn more</button>
-
-<button id="reset-filters" class="btn btn-danger col-md-offset-4">Reset all Charts</button>
-<div id="buttonSuccess" class="button-success col-md-offset-1">
-  <span> This Dashboard contains Data of the passangers of Titanic. </span>
-  <p>Each charts are represents different correlations such as gender, survivors or dead,
-  classes of passangers (1st, 2nd, 3rd) and age.</p><p>Charts are linked together and calculate the numbers of passangers at your selection.</p>
-  <p>Some of the interesting facts are there were more survivors at 1st class than 3rd class</p>
-  <p>or more female survivors than male.</p>
-  <span> Click on the charts and learn about 
-  the History of Titanic ! </span>
-   
-</div>
-</div>
-
+    <!--------------------------------------------Jumbotron Image------------------------------------------->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>Passengers of the Titanic</h1>
+        </div>
+    </div>
+    <!------------------------------------------Topfix line for buttons--------------------------------------->
+    <div class="navbar">
+        <button id="learn-more" class="btn btn-success col-md-offset-3" onclick="learnMore()">Learn more</button>
+        <button id="reset-filters" class="btn btn-danger col-md-offset-4">Reset all Charts</button>
+        <div id="buttonSuccess" class="button-success col-md-offset-1">
+            <span> This Dashboard contains Data of the passangers of Titanic. </span>
+            <p>Each charts are represents different correlations such as gender, survivors or dead, classes of passangers (1st, 2nd, 3rd) and age.</p>
+            <p>Charts are linked together and calculate the numbers of passangers at your selection.</p>
+            <p>Some of the interesting facts are there were more survivors at 1st class than 3rd class</p>
+            <p>or more female survivors than male.</p>
+            <span> Click on the charts and learn about the History of Titanic ! 
+            </span>
+        </div>
+    </div>
 </div>
 
 <main>
 
-<section>    
-<div class="row">
-    <div class="col-md-offset-3">
-    <!------------------------------------------First row Gender Selector------------------------------------------->    
-    <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
+<section>
+    <div class="row">
+        <div class="col-md-offset-3">
+            <!------------------------------------------First row Gender Selector------------------------------------------->
+            <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
                 <div class="content-wrapper">
                     <div><i class="fas fa-book-open hide-content-btn"></i></div>
                     <div class="hide-content-toggle">
                         <div>
                             <p>The Gender Selector can be used any time to devide all passangers to male or female correlations.</p>
                         </div>
-                        </div>
+                    </div>
                     <h3>Gender Selector</h3>
                     <div id="gender"></div>
-                    </div>
                 </div>
-    <!-------------------------------------------First row Survivor selector----------------------------------------->            
-    <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
+            </div>
+            <!-------------------------------------------First row Survivor selector----------------------------------------->
+            <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
                 <div class="content-wrapper">
                     <div><i class="fas fa-book-open hide-content-btn"></i></div>
                     <div class="hide-content-toggle">
                         <div>
                             <p>The Survivor Selector shows all, dead or survived passangers. All charts are reducing numbers on selection.</p>
                         </div>
-                        </div>
+                    </div>
                     <h3>Survivor Selector</h3>
                     <div id="survived"></div>
-                    </div>
                 </div>
+            </div>
+        </div>
     </div>
-</div>
 </section>
 
 <section>
-<div class="row">
-    <!--------------------------------------------Second row First bar-chart---------------------------------------->
-    <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
-                <div class="content-wrapper">
+    <div class="row">
+        <!--------------------------------------------Second row First bar-chart---------------------------------------->
+        <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
+            <div class="content-wrapper">
                 <h3>Survivors of Titanic</h3>
                 <div><i class="fas fa-book-open hide-content-btn"></i></div>
                 <div class="hide-content-toggle">
-                    <p>This chart represents the survivors of the Titanic. Hover over the column and it will show you the numbers.
-                    If click on columns you can select between dead or survivors.</p>
-                        </div>
-                       </div>    
-                <div class="content-wrapper">        
-                        <div>
-                            <div id="surv-balance"></div>
-                        </div>
-                     </div>
-                    </div>
-    <!--------------------------------------------Second row  Pie-chart second chart--------------------------------------->                
-    <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
-                <div class="content-wrapper">
+                    <p>This chart represents the survivors of the Titanic. Hover over the column and it will show you the numbers. If click on columns you can select between dead or survivors.</p>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div>
+                    <div id="surv-balance"></div>
+                </div>
+            </div>
+        </div>
+        <!--------------------------------------------Second row  Pie-chart second chart--------------------------------------->
+        <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
+            <div class="content-wrapper">
                 <h3>Age-group Chart</h3>
-                
                 <div><i class="fas fa-book-open hide-content-btn"></i></div>
-                
                 <div class="hide-content-toggle">
-                    <p>Pie charts are more effective at visualize proportions. This chart based on age categories and groupped under 21 years old,
-                    between 21 and 50 years old and over 50. Unfortunately there were over 500 passengers with no rgistered age. 
-                     Working with hover for numbers and click selector as well.</p>
-                        </div>
-                       </div>    
-                <div class="content-wrapper">  
-                    
-                    
-                        <div>
-                            <div id="age-pie-chart"></div>
-                        </div>
-                      
-                     </div>
-                    </div>
-    <!------------------------------------------Second row Third chart bar-chart --------------------------------------------->
-    <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
-                <div class="content-wrapper">
-                    <h3>Gender Balance</h3>
-                    <div><i class="fas fa-book-open hide-content-btn"></i></div>
-                    
-                    <div class="hide-content-toggle">
-                    <p>This chart responds the selections for all charts and shows the balance of male and female correlation.
-                    Hover over will display numbers and clicks works as gender selectors.
+                    <p>Pie charts are more effective at visualize proportions. This chart based on age categories and groupped under 21 years old, between 21 and 50 years old and over 50. Unfortunately there were over 500 passengers with no rgistered age.
+                        Working with hover for numbers and click selector as well.</p>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div>
+                    <div id="age-pie-chart"></div>
+                </div>
+            </div>
+        </div>
+        <!------------------------------------------Second row Third chart bar-chart --------------------------------------------->
+        <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
+            <div class="content-wrapper">
+                <h3>Gender Balance</h3>
+                <div><i class="fas fa-book-open hide-content-btn"></i></div>
+                <div class="hide-content-toggle">
+                    <p>This chart responds the selections for all charts and shows the balance of male and female correlation. Hover over will display numbers and clicks works as gender selectors.
                     </p>
-                        </div>
-                       </div>    
-                <div class="content-wrapper">   
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div>
+                    <div id="gender-balance"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!----------------------------------------------------------Third row first chart-------------------------------------------------->
+        <div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
+            <div class="content-wrapper">
+                <h3>Passengers Classes</h3>
+                <div><i class="fas fa-book-open hide-content-btn"></i></div>
+                <div class="hide-content-toggle">
+                    <p>All passengers were travelling at three different classes. When you selected genders or/and survivors this chart will show you how many of them were travelling 1st, 2nd, 3rd classes.
+                    </p>
+                </div>
+            </div>
+            <div id="class-chart"></div>
+        </div>
+        <!--------------------------------------------------------Third row second chart-------------------------------------------->
+        <div class="toggle col-xs-12 col-sm-6 col-lg-6 eq-column-height">
+            <div class="content-wrapper">
+                <h3>Passengers Age Chart</h3>
+                <div><i class="fas fa-book-open hide-content-btn"></i></div>
+
+                <div class="hide-content-toggle">
+                    <p>Last chart represents all passangers at age correlation. As you reduce any options at the charts before this will respond to your selection and display the numbers on hover over mode. Click on the bars to select same age group!</p>
+                </div>
+            </div>
+            <div style="overflow-x:auto;" class="hide-content-toggle">
+                <div class="content-wrapper">
                     <div>
-                     <div id="gender-balance"></div>
-                    </div>
+                        <div id="age-balance-chart" class="age"></div>
                     </div>
                 </div>
+            </div>
+        </div>
     </div>
-
-<div class="row">
-<!----------------------------------------------------------Third row first chart-------------------------------------------------->    
-<div class="toggle col-xs-12 col-sm-6 col-lg-4 eq-column-height">
-                <div class="content-wrapper">
-                    <h3>Passengers Classes</h3>
-                    <div><i class="fas fa-book-open hide-content-btn"></i></div>
-                    <div class="hide-content-toggle">
-                        <p>All passengers were travelling at three different classes. When you selected genders or/and survivors
-                        this chart will show you how many of them were travelling 1st, 2nd, 3rd classes.  
-                        </p>
-                           </div>
-                           </div>
-                            <div id="class-chart"></div>
-                        </div>
-                        
-                    
-
-<!--------------------------------------------------------Third row second chart-------------------------------------------->                
-<div  class="toggle col-xs-12 col-sm-6 col-lg-6 eq-column-height">
-                <div class="content-wrapper">
-                    <h3>Passengers Age Chart</h3>
-                    <div><i class="fas fa-book-open hide-content-btn"></i></div>
-                    
-                    <div class="hide-content-toggle">
-                      <p>Last chart represents all passangers at age correlation. As you reduce any options at the charts before this will respond
-                      to your selection and display the numbers on hover over mode. Click on the bars to select same age group!</p>
-                        </div>
-                      </div>
-                        <div style="overflow-x:auto;" class="hide-content-toggle">
-                        <div class="content-wrapper">   
-                              <div>
-                     <div id="age-balance-chart" class="age"></div>
-                    </div>
-                            </div>
-                        </div>    
-                    </div>
-                    
-                    
- </div> 
-   
 </section>
 
 </main>
+
 <div id="javascript" class="thankyou col-md-offset-6">
                 <p>Special Thank You for <a href="https://github.com/steview-d" target="_blank">Dave Laffan</a> for all support and help!</p>
             </div>
+            
 <!------------------------------------------------------Footer ----------------------------------------------------->
 <div class="footer">
     <div class="container">
@@ -200,12 +181,12 @@
             </div>
             <div class="col-xs-6 col-sm-3 col-md-3">
                 <a href="https://github.com/aticodein" target="_blank"><i class="fab fa-github github-logo"></i></a>
-                </div>
+            </div>
             <div class="col-xs-6 col-sm-3 col-md-3" onclick="thankYou()">
                 <i class="fab fa-js-square"></i>
-                </div>
+            </div>
             <div class="col-xs-6 col-sm-3 col-md-3">
-                <p>Data source : <a href="https://vincentarelbundock.github.io/Rdatasets/datasets.html" target="_blank">vincentarelbundock</a>COUNT	titanic</p>
+                <p>Data source : <a href="https://vincentarelbundock.github.io/Rdatasets/datasets.html" target="_blank">vincentarelbundock</a>COUNT titanic</p>
             </div>
         </div>
     </div>

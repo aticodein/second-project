@@ -93,8 +93,6 @@ function show_gender_balance(ndx) {
 function show_surv_balance(ndx) {
     var dimSurvived = ndx.dimension(dc.pluck('Survived'));
         var dim = ndx.dimension(function(d){
-           
-        
         if (d.Survived === "1") {
             return "Survived";
         } else {
@@ -123,7 +121,6 @@ function show_surv_balance(ndx) {
                 return dTag.value + " Passengers Died";
                }
         })
-        
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
@@ -152,8 +149,6 @@ function show_age_sort(ndx) {
       }
   
   });
-  
-  
   var age_sort_group = agesDim.group();
   dc.pieChart('#age-pie-chart')
       .height(330)
@@ -191,22 +186,19 @@ function show_class_balance(ndx) {
 function show_age_balance(ndx) {
     var ageDim = ndx.dimension(dc.pluck('age'));
     var ageGroup = ageDim.group();
-         function remove_empty_strings(ageGroup) {
-          return {
-              all:function () {
-                   return ageGroup.all().filter(function(d) {
-                    
-                    
-                  return d.key !== "";
-                    
-                  });
-               }
-           };
-      }
+    
+    function remove_empty_strings(ageGroup) {
+        return {
+            all: function() {
+                return ageGroup.all().filter(function(d) {
+                    return d.key !== "";
+                });
+            }
+        };
+    }
     
     var filtered =remove_empty_strings(ageGroup);
-  
-     var BarChartColors = d3.scale.ordinal()
+    var BarChartColors = d3.scale.ordinal()
         .range(['#7B241C','#F39C12','#F7DC6F']);
      
     dc.barChart("#age-balance-chart")

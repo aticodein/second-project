@@ -29,7 +29,10 @@ Github repository : [https://github.com/aticodein/second-project](https://github
 ### Wireframes
 /assets/images/2019-08-11.png
 
-![Alt text](/assets/images/2019-08-11.png?raw=true "Title")
+![Alt text](/assets/images/balsamiq.png?raw=true "Title")
+#### This mockup made on Balsamiq. I have tried tu use free version and lost a few images,
+#### but this one is show the main concept of the dashboard was:
+#### a heading , some explanation (Learn more button made later for same purpose), charts two rows, (side bar was left out later completly) and footer
  
 ## Features
 
