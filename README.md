@@ -28,6 +28,8 @@ Github repository : [https://github.com/aticodein/second-project](https://github
  
 ### Wireframes
 /assets/images/2019-08-11.png
+
+![Alt text](/assets/images/2019-08-11.png?raw=true "Title")
  
 ## Features
 
