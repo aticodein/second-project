@@ -27,11 +27,11 @@ Github repository : [https://github.com/aticodein/second-project](https://github
  * As a user, I want to be able to easily reset the data and start over, and not have to worry about manually setting all the values back to their original values.
  
 ### Wireframes
-/assets/images/2019-08-11.png
+/assets/images/balsamiq.png
 
 ![Alt text](/assets/images/balsamiq.png?raw=true "Title")
-#### This mockup made on Balsamiq. I have tried tu use free version and lost a few images,
-#### but this one is show the main concept of the dashboard was:
+#### The mockup made on Balsamiq. I have tried tu use free version and lost the images,
+#### but this early stage of the project shows the main concept of the dashboard was:
 #### a heading , some explanation (Learn more button made later for same purpose), charts two rows, (side bar was left out later completly) and footer
  
 ## Features
@@ -100,6 +100,8 @@ Continously used Google Crome developer tools to find mistakes and check looks o
 The following physical devices tested.
 - Samsung SM-T580 Tablet
 - Samsung A7 phone
+- W3 HTML validator
+- w3 CSS validator
 
 
 All user stories listed in the UX section above. 

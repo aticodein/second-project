@@ -16,7 +16,7 @@ function makeGraphs(error, titanicData) {
             }
         });
     }
-
+    
     age_to_integer("Age");
 /*---------------------------------------All charts----------------*/     
 show_gender_selector(ndx);
@@ -209,7 +209,7 @@ function show_age_balance(ndx) {
         .group(filtered)
         .colorAccessor(function(d) {
             return d.key;
-        })
+        }) 
         .colors(BarChartColors)
         .transitionDuration(500)
         .x(d3.scale.ordinal())
